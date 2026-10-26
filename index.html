@@ -395,6 +395,30 @@ p,li,blockquote p{text-wrap:pretty}
 h1,h2,h3{text-wrap:balance}
 .nw{white-space:nowrap}
 .entrada p,.portada-sub,.franja-texto>p{text-wrap:balance}
+/* corte v2 */
+.corte{position:relative;overflow:hidden}
+.corte-img{position:absolute;top:0;bottom:0;left:0;width:62%}
+.corte-img img{width:100%;height:100%;object-fit:cover;object-position:30% 50%;filter:saturate(.75);-webkit-mask-image:linear-gradient(90deg,#000 35%,transparent 100%);mask-image:linear-gradient(90deg,#000 35%,transparent 100%)}
+.corte-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(244,241,234,0) 40%,#f4f1ea 100%),linear-gradient(0deg,rgba(244,241,234,.35),rgba(244,241,234,0) 40%)}
+.corte-grid{position:relative;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;min-height:520px}
+.corte-pie{margin:0;align-self:end;justify-self:start;background:rgba(7,9,8,.78);color:#fff;padding:12px 16px;border-left:2px solid var(--oro);font:600 1.15rem var(--titulo);display:grid;gap:2px}
+.corte-pie span{font:500 .75rem var(--texto);letter-spacing:.16em;text-transform:uppercase;color:var(--oro-claro)}
+.corte-texto{align-self:center;background:rgba(244,241,234,.9);padding:clamp(4px,1vw,12px) 0}
+.corte-ref{font-size:.88rem;color:#6b675e!important}
+@media (max-width:860px){
+  .corte-img{position:relative;width:100%;height:260px}
+  .corte-img img{-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+  .corte-img::after{background:none}
+  .corte-grid{min-height:0;padding-top:0}
+  .corte-pie{margin-top:-74px;position:relative}
+}
+.corte-texto{background:none}
+.corte-img img{object-position:72% 40%}
+@media (max-width:860px){
+  .corte-grid{grid-template-columns:minmax(0,1fr)}
+  .corte-pie{margin-top:-70px;order:-1}
+  .corte-img img{object-position:60% 50%}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Ibarra Durán & Asociados","telephone":"+52 449 415 9119","address":{"@type":"PostalAddress","streetAddress":"Av. Aguascalientes Nte. 605, interior 301, Bosques del Prado Sur","addressLocality":"Aguascalientes","addressRegion":"Ags.","postalCode":"20127","addressCountry":"MX"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"9"},"openingHours":["Mo-Fr 09:00-14:00","Mo-Fr 17:00-20:00"],"founder":{"@type":"Person","name":"Rodrigo Ibarra Durán","alumniOf":"Universidad Panamericana"},"knowsAbout":["Juicio de amparo","Derecho civil","Derecho mercantil","Derecho societario","Derecho corporativo","Derecho familiar"],"sameAs":["https://mx.linkedin.com/in/rodrigo-ibarra-dur%C3%A1n-4a10b9269"]}</script>
 </head>
@@ -403,7 +427,7 @@ h1,h2,h3{text-wrap:balance}
 <header class="cabeza">
   <div class="ancho">
     <a class="marca" href="#inicio"><img src="logo-blanco.webp" alt="Ibarra Durán &amp; Asociados, Estudio Jurídico" width="1100" height="409"></a>
-    <nav class="menu" aria-label="Secciones"><a href="#corte">Suprema Corte</a><a href="#empresas">Empresas</a><a href="#areas">Áreas</a><a href="#socio">El socio</a><a href="#contacto">Contacto</a></nav>
+    <nav class="menu" aria-label="Secciones"><a href="#corte">Caso en la Corte</a><a href="#empresas">Empresas</a><a href="#areas">Áreas</a><a href="#socio">El socio</a><a href="#contacto">Contacto</a></nav>
     <a class="boton-tel" href="tel:+524494159119" aria-label="Llamar al 449 415 9119"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg><span>449 415 9119</span></a>
   </div>
 </header>
@@ -413,7 +437,7 @@ h1,h2,h3{text-wrap:balance}
   <div class="hero-foto" aria-hidden="true"><img src="rodrigo.webp" alt="" width="1000" height="1363" fetchpriority="high"></div>
   <div class="ancho hero-texto">
     <p class="etiqueta">Estudio jurídico en Aguascalientes</p>
-    <h1>Litigio que llega <em>hasta la Suprema Corte</em></h1>
+    <h1>El abogado que <em>ganó en la Suprema Corte</em></h1>
     <p class="portada-sub">Civil, mercantil, societario, corporativo, familiar y amparo. Representamos a personas, empresas y entidades de gobierno con una estrategia pensada para cada caso.</p>
     <p class="google"><b>5.0</b><span class="estrellas" aria-label="5 de 5 estrellas">★★★★★</span>9 opiniones en Google</p>
     <div class="acciones">
@@ -425,17 +449,15 @@ h1,h2,h3{text-wrap:balance}
 </section>
 
 <section class="corte" id="corte">
+  <div class="corte-img" aria-hidden="true"><img loading="lazy" src="scjn.webp" alt="" width="1026" height="551"></div>
   <div class="ancho corte-grid">
-    <div class="corte-num aparece">
-      <p class="etiqueta">Caso destacado</p>
-      <p class="expediente"><small>Amparo directo en revisión</small>6966/2019</p>
-      <p class="sala">Primera Sala · Suprema Corte de Justicia de la Nación</p>
-    </div>
+    <p class="corte-pie aparece">Suprema Corte de Justicia de la Nación<span>Primera Sala</span></p>
     <div class="corte-texto aparece">
+      <p class="etiqueta">Caso ante la Suprema Corte</p>
       <h2>Un caso que cambió <span class="nw">cómo se litiga</span> en Aguascalientes</h2>
-      <p>El despacho promovió este amparo frente a una institución bancaria. La Primera Sala de la Suprema Corte declaró inconstitucionales los artículos 392 Bis y 392 Ter del Código de Procedimientos Civiles del estado, que regulaban la caducidad de la instancia.</p>
-      <p>Pocos abogados locales llevan un asunto a la Corte. Menos aún logran que se declare inconstitucional una norma del estado.</p>
-      <a class="enlace-oro" href="https://www.scjn.gob.mx/sites/default/files/listas/documento_dos/2021-02/ADR-6966-2019-250221.pdf" rel="noopener">Leer la resolución en el sitio de la SCJN</a>
+      <p>Representamos a un cliente en un juicio contra una institución bancaria y llevamos el asunto hasta la Suprema Corte. La Primera Sala nos dio la razón: declaró inconstitucional la regla del Código de Procedimientos Civiles de Aguascalientes que permitía dar por terminado un juicio cuando pasaban 120 días sin movimiento.</p>
+      <p>Para usted significa algo simple: un abogado que conoce el camino completo, desde la primera audiencia hasta la última instancia.</p>
+      <p class="corte-ref">Amparo directo en revisión 6966/2019 · <a class="enlace-oro" href="https://www.scjn.gob.mx/sites/default/files/listas/documento_dos/2021-02/ADR-6966-2019-250221.pdf" rel="noopener">Leer la resolución</a></p>
     </div>
   </div>
 </section>
